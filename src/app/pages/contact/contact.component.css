@@ -1,0 +1,15 @@
+textarea{
+    font-size: 13px;
+    padding-left: 20px;
+    border: none;
+    border-radius: unset;
+}
+
+.bg-white{
+    border: none;
+    border-radius: unset;
+}
+
+section{
+    margin-top: 100px;
+}
