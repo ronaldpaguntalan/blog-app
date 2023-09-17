@@ -1,0 +1,14 @@
+.site-logo{
+    font-size: 1.0em;
+}
+
+nav{
+    height: 70px;
+    padding-left: 50px;
+}
+
+.nav-link{
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    font-size: 1.5em;
+}

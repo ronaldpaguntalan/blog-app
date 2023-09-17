@@ -1,0 +1,32 @@
+.footer-box{
+    height: 155px;
+    background-color: var(--text2-color);
+    margin-top: 85vh;
+    
+}
+
+footer{
+    margin: 10px 50px;
+    padding: 45px 0px;
+}
+
+.site-logo{
+    font-size: 1.2em;
+}
+
+.footer-links li{
+    display: inline;
+    margin-right: 20px;
+}
+
+.footer-links li a{
+    color: var(--primary-color)
+}
+
+p{
+    color: var(--primary-color)
+}
+
+.footer-links li:last-child {
+    margin-right: 0; /* Remove margin for the last li element */
+}

@@ -17,3 +17,23 @@ body{
     color: var(--text1-color);
     background-color: var(--primary-color);
 }
+
+.site-logo{
+    background-color: var(--secondary-color);
+    color: var(--text2-color);
+    border-radius: 40px;
+    padding: 5px 20px;
+}
+
+.paragraph-color{
+    color: var(--paragraph-color)
+}
+
+.paragraph-color2{
+    color: var(--text2-color)
+}
+
+.shadow-effect{
+    border: none;
+    box-shadow: 0px 0px 33px -10px rgba(12, 11, 11, 0.3);
+}

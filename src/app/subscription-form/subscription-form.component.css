@@ -1,0 +1,29 @@
+.card{
+    background-color: var(--secondary-color);
+    border-radius: unset;
+}
+
+.form-control{
+    border-radius: unset;
+}
+
+input[type = text], input[type = email]{
+    height: 49px;
+    padding-left: 20px;
+    font-size: 13px;
+    width: 100%;
+}
+
+.btn-sub{
+    height: 50px;
+    border: none;
+    font-size: 13px;
+    background-color: var(--primary-color);
+    border-radius: unset;
+    margin-left: -25px;
+}
+
+.sub-text{
+    width: 513px;
+}
+
