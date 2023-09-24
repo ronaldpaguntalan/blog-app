@@ -5,17 +5,21 @@ import { PostsService } from 'src/app/services/posts.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
+  featuredPostArray: Post[] = [];
+  latestPostArray: Post[] = [];
 
-  featuredPostArray : Post[] = [];
+  constructor(private postService: PostsService) {}
 
-  constructor( private postService : PostsService){
-    this.postService.loadFeatured().subscribe((val : any) => {
+  ngOnInit(): void {
+    this.postService.loadFeatured().subscribe((val: any) => {
       this.featuredPostArray = val;
+    });
+
+    this.postService.loadLatest().subscribe((val : any) => {
+      this.latestPostArray = val;
     })
   }
-
-
 }

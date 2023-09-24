@@ -26,5 +26,35 @@ export class PostsService {
       );
   }
 
-  
+  loadLatest() {
+    return this.firestore
+      .collection('posts', (ref) => ref.orderBy('createdAt', 'desc').limit(6))
+      .snapshotChanges()
+      .pipe(
+        map((actions) => {
+          return actions.map((a) => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, data };
+          });
+        })
+      );
+  }
+
+  loadCategoryPost(categoryId : string){
+    return this.firestore
+      .collection('posts', (ref) =>
+        ref.where('category.categoryId', '==', categoryId).limit(4)
+      )
+      .snapshotChanges()
+      .pipe(
+        map((actions) => {
+          return actions.map((a) => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, data };
+          });
+        })
+      );
+  }
 }

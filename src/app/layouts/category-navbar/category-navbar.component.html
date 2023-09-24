@@ -9,7 +9,7 @@
     <ul class="navbar-nav text-primary" *ngFor="let category of categoryArray">
       <!-- Iterate through categories and create navigation links -->
       <li class="nav-item ml-3">
-        <a href="" class="nav-link"> {{ category.data.category }} </a>
+        <a class="nav-link" [routerLink]="['/category', category.data.category, category.id]"> {{ category.data.category }} </a>
       </li>
     </ul>
   </div>
