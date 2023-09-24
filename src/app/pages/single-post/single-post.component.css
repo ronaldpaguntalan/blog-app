@@ -1,4 +1,9 @@
 .card{
     background-color: var(--primary-color);
-    border: none
+    border: none;
+}
+
+.card-body{
+    margin-top: 10px;
+    padding: 0;
 }

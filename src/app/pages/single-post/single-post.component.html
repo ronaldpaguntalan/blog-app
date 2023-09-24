@@ -1,72 +1,21 @@
 <div class="container">
-  <div class="row mb-3">
-    <div class="col-md-12 mt-3">
-        <img
-      src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-      alt=""
-      class="img-fluid"
-    />
-    </div>
-  </div>
   <div class="row">
     <div class="col-md-9">
-      <div class="card">
+      <div class="card mt-3">
+        <img src="{{postData?.postImgPath}}">
         <div class="card-body">
-          <small class="text-danger text-center">Design</small>
+          <small class="text-danger text-center">{{postData?.category.category}}</small>
           <small class="text-success text-center ml-4">Featured</small>
-          <small class="text-info text-center ml-4">Views - 100,256</small>
+          <small class="text-info text-center ml-4">Views - {{postData?.views}}</small>
           <small class="text-warning text-center ml-4"
-            >LAST UPDATED - SEPT 20, 2022</small
+            >LAST UPDATED - {{ postData?.createdAt?.toDate() | date : "medium" }}</small
           >
 
           <h1 class="mt-3 mb-3">
-            HOW TO START A BLOG IN 2020 EDITED NEW CATEGORY
+            {{ postData?.title }}
           </h1>
 
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            dignissim, sem eget tristique accumsan, lorem purus tincidunt est,
-            vel malesuada nisi ipsum ut justo. Pellentesque ut diam nec nulla
-            suscipit rhoncus in quis justo. Sed id felis vitae orci posuere
-            vehicula. Fusce in mauris nec velit viverra iaculis in vel justo.
-            Sed luctus ligula non purus posuere, ut bibendum elit condimentum.
-            Sed bibendum quam eget scelerisque bibendum. Proin vehicula tortor
-            vel nibh laoreet bibendum. Vivamus bibendum tortor eget turpis
-            blandit fringilla. Suspendisse potenti. Nulla facilisi. Vivamus id
-            congue odio. Integer sit amet congue est. Nulla facilisi.
-            <br /><br />
-            What is the capital of [Insert Imaginary Country]?
-            <br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-            vehicula, libero nec bibendum mattis, risus sapien blandit libero,
-            ac vulputate leo nisi ac sapien. Nullam eget ante id nisl hendrerit
-            venenatis. Nullam eget libero ac odio bibendum convallis.
-            Suspendisse ullamcorper cursus mi, non blandit lorem auctor eu. Nunc
-            euismod a libero eget tristique. Vivamus eget justo at ex auctor
-            facilisis eget ut ante. Fusce vulputate nibh eget lectus
-            pellentesque, sit amet consectetur metus egestas. Pellentesque vitae
-            posuere sapien, nec ultricies massa. Praesent bibendum, urna quis
-            sagittis dapibus, justo est vulputate nisi, non cursus libero turpis
-            sed velit. Vestibulum ac ipsum at erat suscipit pharetra. In hac
-            habitasse platea dictumst. Nulla bibendum risus et mi laoreet, vel
-            facilisis ex bibendum. Nullam elementum, enim eget sollicitudin
-            congue, ligula ex varius elit, non hendrerit neque ante sit amet
-            nulla. Curabitur vel neque quis nulla dictum auctor.
-            <br /><br />
-            What's the highest peak in the imaginary mountain range known as the
-            "Mystic Spires"?
-            <br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            dignissim, sem eget tristique accumsan, lorem purus tincidunt est,
-            vel malesuada nisi ipsum ut justo. Pellentesque ut diam nec nulla
-            suscipit rhoncus in quis justo. Sed id felis vitae orci posuere
-            vehicula. Fusce in mauris nec velit viverra iaculis in vel justo.
-            Sed luctus ligula non purus posuere, ut bibendum elit condimentum.
-            Sed bibendum quam eget scelerisque bibendum. Proin vehicula tortor
-            vel nibh laoreet bibendum. Vivamus bibendum tortor eget turpis
-            blandit fringilla. Suspendisse potenti. Nulla facilisi. Vivamus id
-            congue odio. Integer sit amet congue est. Nulla facilisi.
-          </p>
+          <p [innerHTML]="postData?.content"></p>
         </div>
 
         <app-comment-form></app-comment-form>
@@ -74,15 +23,9 @@
       </div>
     </div>
     <div class="col-md-3">
-        <div class="container">
-            <div class="row mb-3">
-                <app-post-card></app-post-card>
-            </div>
-            <div class="row mb-3">
-                <app-post-card></app-post-card>
-            </div>
-            <div class="row">
-                <app-post-card></app-post-card>
+        <div class="container pt-3">
+            <div class="row mb-3" *ngFor = "let similarPost of similarPostArray">
+                <app-post-card [postData]="similarPost"></app-post-card>
             </div>
         </div>
     </div>

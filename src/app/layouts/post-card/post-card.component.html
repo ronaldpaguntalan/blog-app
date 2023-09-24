@@ -1,4 +1,4 @@
-<div class="card h-100 shadow-effect" *ngIf="postData">
+<div class="card h-100 shadow-effect" *ngIf="postData" [routerLink]="['/post', postData.id]">
     <img
       src="{{ postData.data.postImgPath }}"
       alt="post-img"
@@ -13,7 +13,7 @@
 
       <p class="card-text paragraph-color">{{ postData.data.excerpt }}</p>
 
-      <small class="text-warning card-text text-center">LAST UPDATED - {{ postData.data.createdAt?.toDate() | date : "medium" }}</small>
+      <small class="text-warning card-text text-center">Last Updated - {{ postData.data.createdAt?.toDate() | date : "short" }}</small>
     </div>
 </div>
 
