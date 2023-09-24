@@ -1,13 +1,19 @@
-<div class="card shadow-effect">
-    <img src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="post-img" class="card-img-top">
+<div class="card h-100 shadow-effect" *ngIf="postData">
+    <img
+      src="{{ postData.data.postImgPath }}"
+      alt="post-img"
+      class="card-img-top card-img-custom"
+    />
     <div class="card-body">
-        <small class="bg-light text-danger text-center"> Design </small>
-        <small class="bg-light text-success text-center ml-3"> Featured </small>
-        <small class="bg-light text-info text-center ml-3"> Views - 100,256 </small>
+      <small class="bg-light text-danger card-text text-center">{{postData.data.category?.category}}</small>
+      <small class="bg-light text-success card-text text-center ml-3">Featured</small>
+      <small class="bg-light text-info card-text text-center ml-3">Views - {{ postData.data.views }}</small>
 
-        <h5 class="mt-1 text-primary">HOW TO START A BLOG IN 2023 EDITED NEW CATEGORY</h5>
-        <p class="paragraph-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim, sem eget tristique accumsan, lorem purus tincidunt est, vel malesuada nisi ipsum ut justo.</p>
+      <h5 class="card-title mt-1 text-primary">{{ postData.data.title | uppercase }}</h5>
 
-        <small class="bg-light text-warning text-center"> LAST UPDATED - SEP 20, 2022 </small>
+      <p class="card-text paragraph-color">{{ postData.data.excerpt }}</p>
+
+      <small class="text-warning card-text text-center">LAST UPDATED - {{ postData.data.createdAt?.toDate() | date : "medium" }}</small>
     </div>
 </div>
+

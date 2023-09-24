@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
+import { Post } from 'src/app/models/post';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-post-card',
@@ -7,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class PostCardComponent {
 
+  @Input() postData: Post | any;
+
+
+  constructor(){}
+
+  
+  ngOnInit(): void {
+
+    console.log(this.postData);
+    
+  }
 }

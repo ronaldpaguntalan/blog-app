@@ -1,4 +1,8 @@
-.card{
-    max-width: 320px;
+.card-img-custom {
+  height: 150px;
+  object-fit: cover;
 }
 
+.text-warning {
+  color: #c79b09 !important;
+}
