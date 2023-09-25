@@ -1,3 +1,4 @@
+<!-- Featured Posts Section -->
 <section class="featured-section">
     <div class="container-fluid">
         <div class="row">
@@ -7,14 +8,17 @@
             </div>
         </div>
 
+        <!-- Display featured posts using ngFor -->
         <div class="row">
-            <div class="col-lg-3" *ngFor = "let featuredPost of featuredPostArray">
+            <div class="col-lg-3 mt-4" *ngFor="let featuredPost of featuredPostArray">
+                <!-- Render a post card component with featured post data -->
                 <app-post-card [postData]="featuredPost"></app-post-card>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Latest Post Section -->
 <section class="container mt-5">
     <div class="row">
         <div class="col-md-12 text-center">
@@ -23,8 +27,10 @@
         </div>
     </div>
 
+    <!-- Display latest posts using ngFor -->
     <div class="row">
-        <div class="col-md-4 mt-3" *ngFor = "let latestPost of latestPostArray">
+        <div class="col-md-4 mt-3" *ngFor="let latestPost of latestPostArray">
+            <!-- Render a post card component with latest post data -->
             <app-post-card [postData]="latestPost"></app-post-card>
         </div>
     </div>

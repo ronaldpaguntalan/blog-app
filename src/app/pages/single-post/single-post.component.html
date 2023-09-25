@@ -1,33 +1,36 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
+      <!-- Card displaying the single post -->
       <div class="card mt-3">
         <img src="{{postData?.postImgPath}}">
         <div class="card-body">
+          <!-- Display post category, featured status, views, and last updated date -->
           <small class="text-danger text-center">{{postData?.category.category}}</small>
-          <small class="text-success text-center ml-4">Featured</small>
+          <small class="text-success text-center ml-4" *ngIf = "postData?.isFeatured">Featured</small>
           <small class="text-info text-center ml-4">Views - {{postData?.views}}</small>
-          <small class="text-warning text-center ml-4"
-            >LAST UPDATED - {{ postData?.createdAt?.toDate() | date : "medium" }}</small
-          >
+          <small class="text-warning text-center ml-4">
+            LAST UPDATED - {{ postData?.createdAt?.toDate() | date : "medium" }}
+          </small>
 
-          <h1 class="mt-3 mb-3">
-            {{ postData?.title }}
-          </h1>
-
+          <!-- Display post title and content -->
+          <h1 class="mt-3 mb-3">{{ postData?.title }}</h1>
           <p [innerHTML]="postData?.content"></p>
         </div>
 
+        <!-- Include the comment form and comment list components -->
         <app-comment-form></app-comment-form>
         <app-comment-list></app-comment-list>
       </div>
     </div>
     <div class="col-md-3">
-        <div class="container pt-3">
-            <div class="row mb-3" *ngFor = "let similarPost of similarPostArray">
-                <app-post-card [postData]="similarPost"></app-post-card>
-            </div>
+      <!-- Display a list of similar posts in the sidebar -->
+      <div class="container pt-3">
+        <div class="row mb-3" *ngFor="let similarPost of similarPostArray">
+          <!-- Use the app-post-card component to display similar posts -->
+          <app-post-card [postData]="similarPost"></app-post-card>
         </div>
+      </div>
     </div>
   </div>
 </div>

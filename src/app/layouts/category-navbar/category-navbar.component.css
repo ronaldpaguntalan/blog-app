@@ -12,3 +12,12 @@ nav{
     color: var(--secondary-color);
     font-size: 1.5em;
 }
+
+.hover-secondary:hover{
+    color: rgb(221, 235, 27);
+    text-decoration: none;
+}
+
+.hover-cat:hover{
+    color: var(--primary-color) !important;
+}

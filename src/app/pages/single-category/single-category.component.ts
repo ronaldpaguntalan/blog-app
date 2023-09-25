@@ -10,19 +10,19 @@ import { PostsService } from 'src/app/services/posts.service';
 })
 export class SingleCategoryComponent {
 
-  postArray : Post[] = [];
-  categoryObj: any;
+  postArray: Post[] = []; // Array to store posts of a specific category
+  categoryObj: any; // Object to store category information
 
-  constructor(private route : ActivatedRoute, private postService : PostsService){}
+  constructor(private route: ActivatedRoute, private postService: PostsService) {}
 
-  ngOnInit(): void{
+  ngOnInit(): void {
+    // Subscribe to route parameters to get the category ID
     this.route.params.subscribe(val => {
-      console.log(val);
       this.categoryObj = val;
-      this.postService.loadCategoryPost(val['id']).subscribe((post : any) => {
+      // Load posts for the specified category and subscribe to updates
+      this.postService.loadCategoryPost(val['id']).subscribe((post: any) => {
         this.postArray = post;
-      })
-    })
+      });
+    });
   }
-
 }

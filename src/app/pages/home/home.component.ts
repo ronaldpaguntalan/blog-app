@@ -8,18 +8,22 @@ import { PostsService } from 'src/app/services/posts.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
+  // Arrays to store featured and latest posts
   featuredPostArray: Post[] = [];
   latestPostArray: Post[] = [];
 
   constructor(private postService: PostsService) {}
 
+  // Called when the component is initialized
   ngOnInit(): void {
+    // Load featured posts from the service and subscribe to updates
     this.postService.loadFeatured().subscribe((val: any) => {
       this.featuredPostArray = val;
     });
 
-    this.postService.loadLatest().subscribe((val : any) => {
+    // Load latest posts from the service and subscribe to updates
+    this.postService.loadLatest().subscribe((val: any) => {
       this.latestPostArray = val;
-    })
+    });
   }
 }

@@ -1,12 +1,16 @@
+<!-- Header Section with Category Name -->
 <div class="bg-theme p-5">
-    <h1> {{categoryObj.categoryName}} </h1>
+    <h1> {{ categoryObj.categoryName }} </h1>
     <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
 </div>
 
+<!-- Container for Displaying Post Cards -->
 <div class="container mt-5 mb-5">
+    <!-- Row for Displaying Post Cards -->
     <div class="row mb-3">
-        <div class="col-md-4" *ngFor = "let post of postArray">
-            <app-post-card [postData] = "post"></app-post-card>
+        <!-- Loop through an array of posts and render a post card component for each post -->
+        <div class="col-md-4" *ngFor="let post of postArray">
+            <app-post-card [postData]="post"></app-post-card>
         </div>
     </div>
 </div>
