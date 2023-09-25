@@ -50,7 +50,6 @@ input[type = text], input[type = email]{
     height: 49px;
     padding-left: 20px;
     font-size: 13px;
-    border: none;
     border-radius: unset;
 }
 
